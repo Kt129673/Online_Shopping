@@ -6,15 +6,30 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
-	
-	@RequestMapping(value = {"/","/index","home"})
+
+	@RequestMapping(value = { "/", "/index", "home" })
 	public ModelAndView index() {
-		
-		ModelAndView mv=new ModelAndView("page");
-		mv.addObject("greeting", "welcome to spring web mvc");
-		
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickHome", true);
+		mv.addObject("title", "Home");
+		return mv;
+	}
+
+	@RequestMapping(value = "/aboutUs")
+	public ModelAndView aboutUs() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickAboutUs", true);
+		mv.addObject("title", "About Us");
 		return mv;
 	}
 	
+	@RequestMapping(value = "/contactUs")
+	public ModelAndView contactUs() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("userClickContactUs", true);
+		mv.addObject("title", "Contact Us");
+		return mv;
+	}
+			
 
 }
