@@ -7,7 +7,7 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 
-<c:set var="contextRoot" value="${pageContext.request.contextPath}" ></c:set>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
 
 
 
@@ -28,17 +28,19 @@
 <link rel="stylesheet" href="${css}/styles.css" />
 </head>
 <body>
-	<!-- Navigation-->
 
-	<%@include file="./shared/navbar.jsp"%>
-
-
+	<div>
+		<!-- Navigation-->
+		<%@include file="./shared/navbar.jsp"%>
+	</div>
+	
+	
 	<!--Page Content / Home Content  -->
 	<!-- Only When User Click Contact Us -->
 	<c:if test="${userClickContactUs == true }">
 		<%@include file="contactUs.jsp"%>
 	</c:if>
-	
+
 	<!-- Only When User Click Home , / , index  -->
 	<c:if test="${userClickHome == true }">
 		<%@include file="home.jsp"%>

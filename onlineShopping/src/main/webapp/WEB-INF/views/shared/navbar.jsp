@@ -1,6 +1,7 @@
+<%@page import="com.ecom.shoppingBackend.dto.Category"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
    
     
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,6 +22,15 @@
 							<li><a class="dropdown-item" href="#!">Popular Items</a></li>
 							<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
 							<li><a class="dropdown-item" href="${contextRoot}/listProducts">View Products</a></li>
+						</ul></li>
+						
+						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop With Category</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						
+						 <c:forEach items="${categories }" var="cat">
+						
+							<li><a class="dropdown-item" href="#!"> ${cat.name}  </a></li>
+						</c:forEach> 
 						</ul></li>
 				</ul>
 				<form class="d-flex">

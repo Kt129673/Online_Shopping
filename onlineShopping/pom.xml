@@ -7,6 +7,18 @@
 	<name>onlineShopping Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+
+
+		<!--linking backend Project  -->
+
+		<dependency>
+			<groupId>com.ecom</groupId>
+			<artifactId>shoppingBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -29,7 +41,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
