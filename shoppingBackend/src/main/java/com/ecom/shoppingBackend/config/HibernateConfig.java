@@ -40,7 +40,7 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(source);
 		builder.addProperties(getHibernateProperties());
 		builder.scanPackages("com.ecom.shoppingBackend.dto");
-		return null;
+		return builder.buildSessionFactory();
 	}
 
 //	All hibernate properties will be return in this method
@@ -59,7 +59,7 @@ public class HibernateConfig {
 
 		HibernateTransactionManager manager = new HibernateTransactionManager(sessionFactory);
 
-		return null;
+		return manager;
 	}
 
 }
