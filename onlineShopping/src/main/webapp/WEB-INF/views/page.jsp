@@ -34,6 +34,10 @@
 		<%@include file="./shared/navbar.jsp"%>
 	</div>
 	
+	<!-- Only When User Click userClickAllProducts or userClickCategoryProducts -->
+	<c:if test="${userClickAllProducts == true  or  userClickCategoryProducts == true }">
+		<%@include file="listProduct.jsp"%>
+	</c:if>
 	
 	<!--Page Content / Home Content  -->
 	<!-- Only When User Click Contact Us -->
@@ -52,7 +56,8 @@
 
 	<!-- Footer-->
 	<%@include file="./shared/footer.jsp"%>
-
+	
+	
 	<!-- Bootstrap core JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
