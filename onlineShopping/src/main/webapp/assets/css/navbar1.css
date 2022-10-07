@@ -1,85 +1,92 @@
 @charset "ISO-8859-1";
+
 body {
-  background: #eee;
-  min-height: 3000px;
-  padding: 0;
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
+	background: #eee;
+	min-height: 3000px;
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
-  clear: both;
+	width: 80%;
+	margin: 0 auto;
+	clear: both;
 }
 
 a {
-  display: inline-block;
-  color: #333;
-  text-decoration: none;
+	display: inline-block;
+	color: #333;
+	text-decoration: none;
 }
 
 nav {
-  background: #fff;
-  height: 80px;
-  line-height: 80px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9998;
-  transition: all 0.5s;
+	background: #fff;
+	height: 80px;
+	line-height: 80px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9998;
+	transition: all 0.5s;
 }
+
 nav.scrollUp {
-  transform: translateY(-80px);
+	transform: translateY(-80px);
 }
+
 nav ul.navbar-menu {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  float: right;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	float: right;
 }
+
 nav ul.navbar-menu li {
-  display: inline-block;
-  margin: 0 10px;
+	display: inline-block;
+	margin: 0 10px;
 }
+
 nav ul.navbar-menu li a {
-  color: #666;
-  font-size: 14px;
+	color: #666;
+	font-size: 14px;
 }
+
 nav a#brand {
-  text-transform: uppercase;
-  foat: left;
-  font-weight: 800;
-  font-size: 20px;
+	text-transform: uppercase;
+	foat: left;
+	font-weight: 800;
+	font-size: 20px;
 }
+
 nav button {
-  background: none;
-  width: 30px;
-  height: 40px;
-  margin-top: 20px;
-  border: none;
-  float: right;
-  display: inline-block;
-  cursor: pointer;
-  display: none;
+	background: none;
+	width: 30px;
+	height: 40px;
+	margin-top: 20px;
+	border: none;
+	float: right;
+	display: inline-block;
+	cursor: pointer;
+	display: none;
 }
+
 nav button span {
-  width: 30px;
-  height: 40px;
-  height: 2px;
-  background: #333;
-  display: block;
-  margin: 5px 0;
+	width: 30px;
+	height: 40px;
+	height: 2px;
+	background: #333;
+	display: block;
+	margin: 5px 0;
 }
 
-@media (max-width: 768px) {
-  nav ul.navbar-menu {
-    display: none;
-  }
-
-  nav button {
-    display: block;
-  }
+@media ( max-width : 768px) {
+	nav ul.navbar-menu {
+		display: none;
+	}
+	nav button {
+		display: block;
+	}
 }

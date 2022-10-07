@@ -1,69 +1,62 @@
 package com.onlineShopping.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecom.shoppingBackend.dao.CategoryDAO;
-import com.ecom.shoppingBackend.dto.Category;
+import com.ecom.shoppingBackend.dao.ProductDAO;
 
 @Controller
 public class PageController {
 	
 	
+private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@RequestMapping(value = { "/", "/index", "home" })
-	public ModelAndView index() {
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("userClickHome", true);
-		mv.addObject("title", "Home");
-		mv.addObject("categories",categoryDAO.findAllCategory());
-		return mv;
-	}
-
-	@RequestMapping(value = "/aboutUs")
-	public ModelAndView aboutUs() {
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("userClickAboutUs", true);
-		mv.addObject("title", "About Us");
-		return mv;
+	@Autowired
+	private ProductDAO productDAO;
+	
+	@RequestMapping(value = {"/", "/home", "/index"})
+	public ModelAndView index(@RequestParam(name="logout",required=false)String logout) {		
+		ModelAndView mv = new ModelAndView("page");		
+		mv.addObject("title","Home");
+		
+		logger.info("Inside PageController index method - INFO");
+		logger.debug("Inside PageController index method - DEBUG");
+		
+		//passing the list of categories
+		mv.addObject("categories", categoryDAO.list());
+		
+		
+		if(logout!=null) {
+			mv.addObject("message", "You have successfully logged out!");			
+		}
+		
+		mv.addObject("userClickHome",true);
+		return mv;				
 	}
 	
-	@RequestMapping(value = "/contactUs")
-	public ModelAndView contactUs() {
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("userClickContactUs", true);
-		mv.addObject("title", "Contact Us");
-		return mv;
-	}
+	@RequestMapping(value = "/about")
+	public ModelAndView about() {		
+		ModelAndView mv = new ModelAndView("page");		
+		mv.addObject("title","About Us");
+		mv.addObject("userClickAbout",true);
+		return mv;				
+	}	
 	
-//	methods to all product based on category
-	
-	@RequestMapping(value ="show/all/products")
-	public ModelAndView showAllProducts() {
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("userClickAllProducts", true);
-		mv.addObject("title", "All Products");
-//		Passing the list of categories
-		mv.addObject("categories",categoryDAO.findAllCategory());
-		return mv;
-	}
-	
-	@RequestMapping(value ="show/category/{id}/products")
-	public ModelAndView showCategoryProducts(@PathVariable ("id") int id) {
-		ModelAndView mv = new ModelAndView("page");
-//	categoryDAO to fetch single record		
-		Category category=categoryDAO.findCategoryById(id);;
-		mv.addObject("userClickCategoryProducts", true);
-		mv.addObject("title", category.getName());
-//		Passing the single category object
-		mv.addObject("cat",category);
-		return mv;
-	}
-			
+	@RequestMapping(value = "/contact")
+	public ModelAndView contact() {		
+		ModelAndView mv = new ModelAndView("page");		
+		mv.addObject("title","Contact Us");
+		mv.addObject("userClickContact",true);
+		return mv;				
+	}	
 
 }
